@@ -34,7 +34,7 @@ module.exports.Router = class Routes extends Router {
 
             req.session.user = user;
 
-            console.log(`${user.me.username} just logged into the dashboard`);
+            client.emit('newUser', user.me);
 
             return res.redirect('/profile');
 
