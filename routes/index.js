@@ -5,7 +5,10 @@ module.exports.Router = class Routes extends Router {
         super();
 
         this.get('/', function (req, res) {
-            return res.send(client.user.username);
+            return res.send({
+                client: client.user.username,
+                session: req.user ? req.user.me.username : false
+            });
         });
     };
 };
