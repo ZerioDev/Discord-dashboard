@@ -7,7 +7,10 @@ module.exports.Router = class Routes extends Router {
         this.get('/', function (req, res) {
             if (!req.user) return res.redirect('/login');
 
-            return res.send(req.user.guilds.map(x => x.name));
+            return res.render('guilds.ejs', {
+                user: req.user.me,
+                guilds: req.user.guilds
+            });
         });
 
         this.get('/:ID', function (req, res) {
