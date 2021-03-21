@@ -34,7 +34,7 @@ module.exports.Router = class Routes extends Router {
 
             req.session.user = user;
 
-            return res.redirect('/');
+            return res.redirect('/profile');
 
             async function get(url) {
                 const data = await fetch(url, {
