@@ -46,7 +46,7 @@ module.exports.Router = class Routes extends Router {
 
 			req.client.emit('newUser', user.me);
 
-			return res.redirect('/profile');
+			return res.status(200).redirect('/profile');
 
 		});
 	}
