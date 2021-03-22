@@ -9,7 +9,7 @@ module.exports.Router = class Routes extends Router {
 
             return res.render('guilds.ejs', {
                 user: req.user.me,
-                guilds: req.user.guilds
+                guilds: req.user.guilds.sort((a, b) => a.name.localeCompare(b.name))
             });
         });
 
