@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const session = require('express-session');
+const expressLayouts = require('express-ejs-layouts');
 
 class Dashboard {
     constructor(client) {
@@ -20,6 +21,7 @@ class Dashboard {
         this.app.set('view engine', 'ejs');
         this.app.use(express.static('style'));
         this.app.use(express.urlencoded({ extended: false }));
+        this.app.use(expressLayouts);
 
         this.app.use(session({ secret: `${Date.now()}${this.client.user.id}`, resave: false, saveUninitialized: false }));
 

@@ -9,6 +9,7 @@
     "discord.js": "^12.5.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
     "node-fetch": "^2.6.1"
   }
