@@ -1,13 +1,13 @@
 module.exports = {
-    client: {
-        token: 'NzIwNzQ5NjI4OTE5Nzc1Mjgy.XuKgZg.OxYb9L8gcRKPN_VbCpKFqOToBVQ',
-    },
-    
-    dashboard: {
-        url: 'http://localhost',
-        port: 3000,
-        secret: 'BtRQe6KkKmSEfcZOLSYTPCc-VsNCmCt6'
-    }
+	client: {
+		token: 'NzIwNzQ5NjI4OTE5Nzc1Mjgy.XuKgZg.OxYb9L8gcRKPN_VbCpKFqOToBVQ',
+	},
+
+	dashboard: {
+		url: 'http://localhost',
+		port: 3000,
+		secret: 'BtRQe6KkKmSEfcZOLSYTPCc-VsNCmCt6',
+	},
 };
 
 /*
