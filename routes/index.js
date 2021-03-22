@@ -6,7 +6,7 @@ module.exports.Router = class Routes extends Router {
 
         this.get('/', function (req, res) {
             return res.send({
-                client: client.user.username,
+                client: req.client.user.username,
                 session: req.user ? req.user.me.username : false
             });
         });

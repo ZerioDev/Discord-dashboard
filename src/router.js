@@ -3,13 +3,16 @@ const express = require('express');
 const session = require('express-session');
 
 class Dashboard {
-    constructor() {
+    constructor(client) {
         this.app = express();
+        this.client = client;
 
         this.setup();
         this.routes();
 
-        console.log(`Dashboard launched on the port ${config.dashboard.port}`);
+        console.log(`Dashboard launched on the port ${this.client.config.dashboard.port}`);
+        console.log(`Access it at : ${this.client.config.dashboard.url}${this.client.config.dashboard.port !== 80 ? ':' + this.client.config.dashboard.port : ''}`);
+
     }
 
     setup() {
@@ -18,15 +21,17 @@ class Dashboard {
         this.app.use(express.static('style'));
         this.app.use(express.urlencoded({ extended: false }));
 
-        this.app.use(session({ secret: client.token, resave: false, saveUninitialized: false }));
+        this.app.use(session({ secret: `${Date.now()}${this.client.user.id}`, resave: false, saveUninitialized: false }));
 
         this.app.use((req, res, next) => {
             req.user = req.session.user;
+            req.client = this.client;
+            req.config = this.client.config.dashboard;
 
             next();
         });
 
-        this.app.listen(config.dashboard.port);
+        this.app.listen(this.client.config.dashboard.port);
     }
 
     routes() {
@@ -41,4 +46,4 @@ class Dashboard {
     }
 };
 
-module.exports = new Dashboard();
+module.exports = Dashboard;

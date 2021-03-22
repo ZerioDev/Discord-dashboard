@@ -16,7 +16,7 @@ module.exports.Router = class Routes extends Router {
         this.get('/:ID', function (req, res) {
             if (!req.user) return res.redirect('/login');
 
-            const guild = client.guilds.cache.get(req.params.ID);
+            const guild = req.client.guilds.cache.get(req.params.ID);
 
             if (!guild) return res.redirect('/invite');
             if (!guild.members.cache.get(req.user.me.id).hasPermission('MANAGE_GUILD')) return res.redirect('/guilds');

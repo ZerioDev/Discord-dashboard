@@ -6,16 +6,16 @@ module.exports.Router = class Routes extends Router {
         super();
 
         this.get('/', async function (req, res) {
-            const URL = `${config.dashboard.url}:${config.dashboard.port}/login`;
+            const URL = `${req.config.url}:${req.config.port}/login`;
 
-            if (!req.query.code) return res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&scope=identify%20guilds&response_type=code&redirect_uri=${encodeURIComponent(URL)}`);
+            if (!req.query.code) return res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${req.client.user.id}&scope=identify%20guilds&response_type=code&redirect_uri=${encodeURIComponent(URL)}`);
 
             const params = new URLSearchParams();
 
             params.set('code', req.query.code);
-            params.set('client_id', client.user.id);
+            params.set('client_id', req.client.user.id);
             params.set('grant_type', 'authorization_code');
-            params.set('client_secret', config.client.secret);
+            params.set('client_secret', req.config.secret);
             params.set('redirect_uri', URL);
 
             const auth = await fetch('https://discord.com/api/oauth2/token', {
@@ -36,7 +36,7 @@ module.exports.Router = class Routes extends Router {
 
                 return await data.json();
             }
-            
+
             const user = {};
 
             await get('https://discord.com/api/users/@me').then(data => user.me = data);
@@ -44,7 +44,7 @@ module.exports.Router = class Routes extends Router {
 
             req.session.user = user;
 
-            client.emit('newUser', user.me);
+            req.client.emit('newUser', user.me);
 
             return res.redirect('/profile');
 
