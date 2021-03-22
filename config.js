@@ -1,12 +1,12 @@
 module.exports = {
 	client: {
-		token: 'NzIwNzQ5NjI4OTE5Nzc1Mjgy.XuKgZg.z_TiZdCIaqN1H5eMxuFWRpnD_nQ',
+		token: '',
 	},
 
 	dashboard: {
 		url: 'http://localhost',
 		port: 3000,
-		secret: 'yEQOoB1_nq1PgA4ZfZRyr5sc9wDJA9o1',
+		secret: '',
 	},
 };
 
