@@ -24,19 +24,7 @@ module.exports.Router = class Routes extends Router {
             });
 
             const tokens = await auth.json();
-
             if (!tokens.access_token) return res.redirect('/login');
-
-            const user = {};
-
-            await get('https://discord.com/api/users/@me').then(data => user.me = data);
-            await get('https://discord.com/api/users/@me/guilds').then(data => user.guilds = data);
-
-            req.session.user = user;
-
-            client.emit('newUser', user.me);
-
-            return res.redirect('/profile');
 
             async function get(url) {
                 const data = await fetch(url, {
@@ -48,6 +36,18 @@ module.exports.Router = class Routes extends Router {
 
                 return await data.json();
             }
+            
+            const user = {};
+
+            await get('https://discord.com/api/users/@me').then(data => user.me = data);
+            await get('https://discord.com/api/users/@me/guilds').then(data => user.guilds = data);
+
+            req.session.user = user;
+
+            client.emit('newUser', user.me);
+
+            return res.redirect('/profile');
+
         });
     };
 };
