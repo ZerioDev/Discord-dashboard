@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-
+<body>
 <% guilds.forEach((guild) => { %>
     <form action="/guilds/<%= guild.id %>">
         <button type="submit"><%= guild.name %></button>
     </form>
 <%})%>
-
-</html>
+</body>

@@ -7,7 +7,9 @@ module.exports.Router = class Routes extends Router {
         this.get('/', function (req, res) {
             if (!req.user) return res.redirect('/login');
 
-            return res.send(req.user.me);
+            return res.render('profile.ejs', {
+                user: req.user.me,
+            });
         });
     };
 };
