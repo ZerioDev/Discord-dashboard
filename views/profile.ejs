@@ -1,0 +1,28 @@
+<body>
+    <div class="card">
+        <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" style="width:50%">
+        <h1><%= user.username + '#' + user.discriminator %></h1>
+        <p class="title"><%= user.id %></p>
+    </div>
+</body>
+
+<!-- Just temporary CSS, will be replaced -->
+<style> 
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+    }
+</style>
