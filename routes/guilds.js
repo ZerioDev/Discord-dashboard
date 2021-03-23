@@ -4,7 +4,7 @@ module.exports.Router = class Routes extends Router {
 	constructor() {
 		super();
 
-		this.get('/', function(req, res) {
+		this.get('/', function (req, res) {
 			if (!req.user) return res.redirect('/login');
 
 			return res.render('guilds.ejs', {
@@ -13,7 +13,7 @@ module.exports.Router = class Routes extends Router {
 			});
 		});
 
-		this.get('/:ID', function(req, res) {
+		this.get('/:ID', function (req, res) {
 			if (!req.user) return res.redirect('/login');
 
 			const guild = req.client.guilds.cache.get(req.params.ID);
