@@ -24,4 +24,6 @@ Then type `npm i` to install the project dependencies and `npm start` to launch 
 This project is currently maintained by ZerioDev.
 If you want to be listed as a contributor you will have to contribute to the project.
 
+Contributors, SimonLeclere.
+
 Don't forget to leave a star if you like this project.
