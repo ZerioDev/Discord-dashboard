@@ -40,6 +40,9 @@ class Dashboard {
 
         for (const file of files) {
             const route = require(`../routes/${file}`);
+
+            if (!this.client.config.supportGuild.enabled && route.page === '/support') return;
+
             this.app.use(route.page, new route.Router());
 
             console.log(`Route ${file.split('.')[0].toLowerCase()} launched`);

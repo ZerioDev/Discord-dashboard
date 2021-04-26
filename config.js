@@ -10,6 +10,11 @@ module.exports = {
     },
 
     autoRedirect: false,
+
+    supportGuild: {
+        enabled: true,
+        urlCode: '5cGSYV8ZZj',
+    }
 };
 
 /*
