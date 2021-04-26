@@ -1,13 +1,15 @@
 module.exports = {
-	client: {
-		token: '',
-	},
+    client: {
+        token: '',
+    },
 
-	dashboard: {
-		url: 'http://localhost',
-		port: 3000,
-		secret: '',
-	},
+    dashboard: {
+        url: 'http://localhost',
+        port: 3000,
+        secret: '',
+    },
+
+    autoRedirect: false,
 };
 
 /*
