@@ -2,18 +2,24 @@ module.exports = {
     client: {
         token: '',
     },
+    
+    database: {
+        user: '',
+        database: '',
+        password: ''
+    },
 
     dashboard: {
         url: 'http://localhost',
         port: 3000,
-        secret: '',
+        secret: ''
     },
 
     autoRedirect: false,
 
     supportGuild: {
         enabled: true,
-        urlCode: '5cGSYV8ZZj',
+        urlCode: '5cGSYV8ZZj'
     }
 };
 
