@@ -11,8 +11,10 @@ class Dashboard {
         this.setup();
         this.routes();
 
+        this.dashboardURL = `${this.client.config.dashboard.url}${this.client.config.dashboard.port !== 80 ? ':' + this.client.config.dashboard.port : ''}`;
+
         console.log(`Dashboard launched on the port ${this.client.config.dashboard.port}`);
-        console.log(`Access it at : ${this.client.config.dashboard.url}${this.client.config.dashboard.port !== 80 ? ':' + this.client.config.dashboard.port : ''}`);
+        console.log(`Access it at : ${this.dashboardURL}`);
     }
 
     setup() {
@@ -27,6 +29,7 @@ class Dashboard {
         this.app.use((req, res, next) => {
             req.user = req.session.user;
             req.client = this.client;
+            req.dashURL = this.dashboardURL;
             req.config = this.client.config.dashboard;
 
             next();

@@ -6,7 +6,7 @@ module.exports.Router = class Routes extends Router {
 		super();
 
 		this.get('/', async function (req, res) {
-			const URL = `${req.config.url}:${req.config.port}/login`;
+			const URL = `${req.dashURL}/login`;
 
 			if (!req.query.code) return res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${req.client.user.id}&scope=identify%20guilds&response_type=code&redirect_uri=${encodeURIComponent(URL)}`);
 
